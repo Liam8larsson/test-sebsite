@@ -577,8 +577,7 @@ function buildTexturePlan(config: Config): string {
       rows.push(`${textureKey(action.name, i)} => x:${dir.textureX}, y:${dir.textureY}, w:${dir.textureWidth}, h:${dir.textureHeight}`);
     });
   });
-  return rows.join("
-");
+  return rows.join("\\n");
 }
 
 function makeExportFiles(config: Config) {
