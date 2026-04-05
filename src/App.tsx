@@ -1476,28 +1476,50 @@ export default function DSMaker() {
                     <FileJson size={16} /> UV 일괄 변경
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 12 }}>
-                    <div>
-                      <label style={labelStyle}>tex X</label>
-                      <SimpleInput type="number" value={bulkTexX} onChange={(e) => setBulkTexX(coerceNumberInput(e.target.value, bulkTexX))} />
-                    </div>
-                    <div>
-                      <label style={labelStyle}>tex Y</label>
-                      <SimpleInput type="number" value={bulkTexY} onChange={(e) => setBulkTexY(coerceNumberInput(e.target.value, bulkTexY))} />
-                    </div>
-                    <div>
-                      <label style={labelStyle}>tex W</label>
-                      <SimpleInput type="number" value={bulkTexW} onChange={(e) => setBulkTexW(coerceNumberInput(e.target.value, bulkTexW))} />
-                    </div>
-                    <div>
-                      <label style={labelStyle}>tex H</label>
-                      <SimpleInput type="number" value={bulkTexH} onChange={(e) => setBulkTexH(coerceNumber />
-                    </div>
-                  </div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-                    <SimpleButton onClick={loadBulkFromSelectedSlot}><Copy size={14} /> 선택 슬롯 값 가져오기</SimpleButton>
-                    <SimpleButton onClick={applyBulkToCurrentAction}><Tag size={14} /> 현재 액션 전체 적용</SimpleButton>
-                    <SimpleButton onClick={applyBulkToAllActions}><Package size={14} /> 전체 액션 전체 적용</SimpleButton>
-                  </div>
+  <div>
+    <label style={labelStyle}>tex X</label>
+    <SimpleInput
+      type="number"
+      value={bulkTexX}
+      onChange={(e) => setBulkTexX(coerceNumberInput(e.target.value, bulkTexX))}
+    />
+  </div>
+  <div>
+    <label style={labelStyle}>tex Y</label>
+    <SimpleInput
+      type="number"
+      value={bulkTexY}
+      onChange={(e) => setBulkTexY(coerceNumberInput(e.target.value, bulkTexY))}
+    />
+  </div>
+  <div>
+    <label style={labelStyle}>tex W</label>
+    <SimpleInput
+      type="number"
+      value={bulkTexW}
+      onChange={(e) => setBulkTexW(coerceNumberInput(e.target.value, bulkTexW))}
+    />
+  </div>
+  <div>
+    <label style={labelStyle}>tex H</label>
+    <SimpleInput
+      type="number"
+      value={bulkTexH}
+      onChange={(e) => setBulkTexH(coerceNumberInput(e.target.value, bulkTexH))}
+    />
+  </div>
+</div>
+<div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+  <SimpleButton onClick={loadBulkFromSelectedSlot}>
+    <Copy size={14} /> 선택 슬롯 값 가져오기
+  </SimpleButton>
+  <SimpleButton onClick={applyBulkToCurrentAction}>
+    <Tag size={14} /> 현재 액션 전체 적용
+  </SimpleButton>
+  <SimpleButton onClick={applyBulkToAllActions}>
+    <Package size={14} /> 전체 액션 전체 적용
+  </SimpleButton>
+</div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
                     <BadgeBox>현재 값: {bulkTexX}, {bulkTexY}, {bulkTexW}, {bulkTexH}</BadgeBox>
                   </div>
