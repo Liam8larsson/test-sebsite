@@ -424,7 +424,7 @@ function buildMainJs(config: Config): string {
     "    if (!targetStillExists) { try { billboard.remove(); } catch {} }",
     "  }",
     "}, UPDATE_INTERVAL);",
-  ].join("\\n");
+  ].join("\n");
 }
 
 function buildBpEntity(config: Config): string {
@@ -1335,7 +1335,7 @@ export default function DSMaker() {
                 <div>
                   <label style={labelStyle}>size W / H / D</label>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 8 }}>
-                    <SimpleInput type="number" value={config.spriteWidth} onChange={(e) => updateConfig({ spriteWidth: Number(e.target.value) || 16 })} />
+                    <SimpleInput type="number" value={config.spriteWidth} onChange={(e) => updateConfig({ spriteWidth: coerceNumberInput(e.target.value, config.spriteWidth) })} />
                     <SimpleInput type="number" value={config.spriteHeight} onChange={(e) => updateConfig({ spriteHeight: Number(e.target.value) || 16 })} />
                     <SimpleInput type="number" step="0.1" value={config.spriteDepth} onChange={(e) => updateConfig({ spriteDepth: Number(e.target.value) || 1 })} />
                   </div>
@@ -1414,7 +1414,7 @@ export default function DSMaker() {
                         <SimpleButton primary={idx === selectedDirIndex} onClick={() => setSelectedDirIndex(idx)}>
                           {dirLabel(idx, config.directionCount)}
                         </SimpleButton>
-                        <div><label style={labelStyle}>tex X</label><SimpleInput type="number" value={dir.textureX} onChange={(e) => updateDir(selectedAction.id, idx, { textureX: Number(e.target.value) || 0 })} /></div>
+                        <div><label style={labelStyle}>tex X</label><SimpleInput type="number" value={dir.textureX} onChange={(e) => updateDir(selectedAction.id, idx, { textureX: coerceNumberInput(e.target.value, dir.textureX) })} /></div>
                         <div><label style={labelStyle}>tex Y</label><SimpleInput type="number" value={dir.textureY} onChange={(e) => updateDir(selectedAction.id, idx, { textureY: Number(e.target.value) || 0 })} /></div>
                         <div><label style={labelStyle}>tex W</label><SimpleInput type="number" value={dir.textureWidth} onChange={(e) => updateDir(selectedAction.id, idx, { textureWidth: Number(e.target.value) || 64 })} /></div>
                         <div><label style={labelStyle}>tex H</label><SimpleInput type="number" value={dir.textureHeight} onChange={(e) => updateDir(selectedAction.id, idx, { textureHeight: Number(e.target.value) || 64 })} /></div>
@@ -1450,7 +1450,7 @@ export default function DSMaker() {
                     </div>
                     <div>
                       <label style={labelStyle}>칸 간격 X</label>
-                      <SimpleInput type="number" value={autoGapX} onChange={(e) => setAutoGapX(Number(e.target.value) || 0)} />
+                      <SimpleInput type="number" value={autoGapX} onChange={(e) => setAutoGapX(coerceNumberInput(e.target.value, autoGapX))} />
                     </div>
                     <div>
                       <label style={labelStyle}>칸 간격 Y</label>
@@ -1475,7 +1475,7 @@ export default function DSMaker() {
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 12 }}>
                     <div>
                       <label style={labelStyle}>tex X</label>
-                      <SimpleInput type="number" value={bulkTexX} onChange={(e) => setBulkTexX(Number(e.target.value) || 0)} />
+                      <SimpleInput type="number" value={bulkTexX} onChange={(e) => setBulkTexX(coerceNumberInput(e.target.value, bulkTexX))} />
                     </div>
                     <div>
                       <label style={labelStyle}>tex Y</label>
