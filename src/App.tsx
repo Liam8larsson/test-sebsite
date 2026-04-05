@@ -436,8 +436,7 @@ function buildMainJs(config: Config): string {
   lines.push("  }");
   lines.push("}, UPDATE_INTERVAL);");
 
-  return lines.join("
-");
+return lines.join(String.fromCharCode(10));
 }
 
 function buildBpEntity(config: Config): string {
