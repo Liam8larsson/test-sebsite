@@ -388,13 +388,19 @@ function buildMainJs(config: Config): string {
     "  try { entity.setProperty(prop, value); } catch {}",
     "}",
     "",
-    "function syncBillboard(target, billboard) {",
-    "  try {",
-    "    const loc = target.location;",
-    "    billboard.teleport(loc, { dimension: billboard.dimension, keepVelocity: false, facingLocation: loc });",
-    "  } catch {}",
-    "",
-    "  let nextAction = 0;",
+function syncBillboard(target, billboard) {
+  try {
+    const loc = target.location;
+    const rot = target.getRotation();
+
+    billboard.teleport(loc, {
+      dimension: billboard.dimension,
+      keepVelocity: false,
+      rotation: { x: 0, y: rot.y }
+    });
+  } catch {}
+
+  let nextAction = 0;
     ...(config.actionTriggerMode === "scoreboard"
       ? [
           "  let scoreValue = 0;",
